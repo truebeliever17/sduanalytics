@@ -1,4 +1,4 @@
-# sduanal
+# SDU Analytics
 
 ## Project setup
 ```
