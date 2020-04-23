@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <div class="wrapper">
+      <button class='change__style' @click='changeStyle()'>Change Style</button>
       <tabs :mode="mode">
         <tab title="Tab 1"><canvas id="planet-chart"></canvas></tab>
-        <tab title="Tab 2">Hello From Tab 2</tab>
+        <tab title="Tab 2"><canvas id="scatter"></canvas></tab>
         <tab title="Tab 3">Hello From Tab 3</tab>
         <tab title="Tab 4">Hello From Tab 4</tab>
       </tabs>
@@ -15,6 +16,7 @@
 import Chart from 'chart.js';
 
 import planetChartData from './charts/chart-data.js';
+import scatter from './charts/try.js'
 import Tab from './components/Tab.vue';
 import Tabs from './view/Tabs.vue';
 export default {
@@ -22,6 +24,7 @@ export default {
   data() {
         return {
             planetChartData: planetChartData,
+            scatter:scatter,
             mode: 'dark',
         }
     },
@@ -48,6 +51,7 @@ export default {
     },
     mounted() {
         this.createChart('planet-chart', this.planetChartData);
+        this.createChart('scatter', this.scatter);
     }
 }
 </script>
