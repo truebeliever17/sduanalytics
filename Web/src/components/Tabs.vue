@@ -51,7 +51,7 @@ export default {
   ul.tabs__header {
     display: block;
     list-style: none;
-    margin: 0 0 0 20px;
+    margin: 0 0 0 0px;
     padding: 0;
   }
 
