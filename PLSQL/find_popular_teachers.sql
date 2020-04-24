@@ -7,7 +7,7 @@ CREATE OR REPLACE FUNCTION find_popular_teachers (
 IS
 
     CURSOR c_emps IS
-    SELECT emp.emp_id,
+    SELECT p_ders_kod, emp.emp_id,
            COUNT (*) AS reg_count,
            (MAX (reg_date) - MIN (reg_date)) / COUNT (*) AS diff, emp.year, emp.term
     FROM course_selections   stud
