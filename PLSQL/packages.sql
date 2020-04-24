@@ -9,6 +9,7 @@ CREATE OR REPLACE PACKAGE records_pkg IS
     TYPE popular_courses_table IS
         TABLE OF popular_courses_rec;
     TYPE popular_teachers_rec IS RECORD (
+        ders_kod    course_selections.ders_kod%TYPE,
         emp_id      course_sections.emp_id%TYPE,
         reg_count   NUMBER,
         diff        FLOAT,
