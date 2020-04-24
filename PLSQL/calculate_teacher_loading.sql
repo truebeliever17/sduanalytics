@@ -2,7 +2,7 @@ CREATE OR REPLACE FUNCTION find_subject_hours (
     p_ders_kod   course_schedule.ders_kod%TYPE,
     p_year       course_schedule.year%TYPE,
     p_term       course_schedule.term%TYPE,
-    p_section    course_sections.term%TYPE
+    p_section    course_sections.section%TYPE
 ) RETURN NUMBER IS
     v_result NUMBER;
 BEGIN
@@ -53,4 +53,4 @@ BEGIN
 END calculate_teacher_loading;
 
 SELECT *
-FROM TABLE (calculate_teacher_loading (10521, 2019, 2));
+FROM TABLE (calculate_teacher_loading (10133, 2019, 1));
