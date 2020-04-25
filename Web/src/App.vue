@@ -17,10 +17,10 @@ export default {
 </script>
 
 <style lang="scss">
-
 @import "~bulma/sass/utilities/_all";
 @import "https://use.fontawesome.com/releases/v5.2.0/css/all.css";
 @import "https://cdn.materialdesignicons.com/2.5.94/css/materialdesignicons.min.css";
+@import "https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css";
 $default-dark: #232931;
 $default-gray: #969696;
 $colors: (
@@ -35,7 +35,6 @@ $navbar-item-hover-background-color: #2b323b;
 $navbar-item-hover-color: #fff;
 $navbar-item-img-max-height: 4rem;
 
-
 $menu-item-color: $default-gray;
 $menu-item-hover-color: white;
 $menu-item-hover-background-color: #333b45;
@@ -49,6 +48,10 @@ $button-border-color: transparent;
 $button-focus-border-color: transparent;
 $button-active-color: white;
 $button-active-border-color: transparent;
+
+$input-background-color: $default-dark;
+$input-border-color: #333b45;
+$input-color: #a2a6ab;
 
 #app {
   background-color: #232931;
