@@ -1,12 +1,26 @@
-import Vue from 'vue'
-import App from './App.vue'
-import Buefy from 'buefy'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import App from "./App.vue";
+import Home from "./view/Home.vue";
+import Services from "./view/Services.vue";
+import Buefy from "buefy";
 
+Vue.use(VueRouter);
+Vue.use(Buefy);
 
-Vue.use(Buefy)
+const routes = [
+  { path: "/", component: Home },
+  { path: "/services", component: Services },
+];
 
-Vue.config.productionTip = false
+const router = new VueRouter({
+  routes,
+});
+
+Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  el: '#app',
+  router,
+  render: h => h(App)
+})
