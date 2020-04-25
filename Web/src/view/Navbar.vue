@@ -1,5 +1,4 @@
 <template>
-
   <b-navbar navbar-background-color="#000000">
     <template slot="brand">
       <b-navbar-item>
@@ -7,16 +6,16 @@
       </b-navbar-item>
     </template>
     <template slot="start">
-      <b-navbar-item href="#">
+      <router-link to="/" tag="b-navbar-item" replace>
         Home
-      </b-navbar-item>
-      <b-navbar-item href="#">
-        Documentation
-      </b-navbar-item>
+      </router-link>
+      <router-link to="/services" tag="b-navbar-item" replace>
+        Services
+      </router-link>
     </template>
 
     <template slot="end">
-        <sidebar></sidebar>
+      <sidebar></sidebar>
     </template>
   </b-navbar>
 </template>
@@ -29,3 +28,6 @@ export default {
   },
 };
 </script>
+
+<style>
+</style>

@@ -47,10 +47,10 @@
                 disabled
               ></b-menu-item>
             </b-menu-item>
-            <b-menu-item icon="account" label="My Account">
-              <b-menu-item label="Account data"></b-menu-item>
-              <b-menu-item label="Addresses"></b-menu-item>
-            </b-menu-item>
+            <router-link to="/services" tag='div' replace>
+              <b-menu-item icon="developer-board" label="Services">
+              </b-menu-item>
+            </router-link>
           </b-menu-list>
           <b-menu-list>
             <b-menu-item label="Expo" icon="link"></b-menu-item>
