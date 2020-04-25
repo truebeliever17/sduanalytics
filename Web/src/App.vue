@@ -22,14 +22,16 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../styles/hamburgers.css";
 @import "~bulma/sass/utilities/_all";
 @import "https://use.fontawesome.com/releases/v5.2.0/css/all.css";
 @import "https://cdn.materialdesignicons.com/2.5.94/css/materialdesignicons.min.css";
 $default-dark: #232931;
 $default-gray: #969696;
 $colors: (
-  "default-dark": ($default-dark, $default-dark)
+  "default-dark": (
+    $default-dark,
+    $default-dark,
+  ),
 );
 $navbar-background-color: $default-dark;
 $navbar-item-color: $default-gray;
@@ -47,8 +49,6 @@ $button-border-color: transparent;
 $button-focus-border-color: transparent;
 $button-active-color: white;
 $button-active-border-color: transparent;
-
-
 
 #app {
   background-color: #232931;
