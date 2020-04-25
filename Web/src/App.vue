@@ -52,6 +52,7 @@ $button-active-border-color: transparent;
 $input-background-color: $default-dark;
 $input-border-color: #333b45;
 $input-color: #a2a6ab;
+$label-color: #a2a6ab;
 
 #app {
   background-color: #232931;
