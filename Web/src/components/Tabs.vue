@@ -66,7 +66,7 @@ export default {
 
   ul.tabs__header > li.tab__selected {
     font-weight: bold;
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px;
     border-bottom: 8px solid transparent;
   }
 
@@ -94,17 +94,19 @@ export default {
   }
 
   .tabs__dark .tab{
-    background-color: #555;
+    background-color: #232931;
+    border: 1px solid blue;
     color: #eee;
   }
 
   .tabs__dark li {
-    background-color: #ddd;
+    background-color: rgba(0, 0, 0, 0.2);
     color: #aaa;
   }
 
   .tabs__dark li.tab__selected {
-    background-color: #555;
+    background-color: #232931;
+    border: 1px solid blue;
     color: white;
 
   }

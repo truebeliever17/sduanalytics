@@ -55,6 +55,8 @@ $input-color: #a2a6ab;
 
 #app {
   background-color: #232931;
+  width:100%;
+  height: 50.95vw;// for Sultans Laptop.
 }
 
 @import "~bulma";

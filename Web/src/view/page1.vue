@@ -3,7 +3,7 @@
         <div id="first"><canvas id="planet-chart"></canvas></div>
         <div id='ss'>
             <div id="second"><canvas id="planet-chart2"></canvas></div>
-            <div id="third"><canvas id='hist'></canvas></div>
+            <div id="third"><canvas id='his'></canvas></div>
         </div>
     </div>    
 </template>
@@ -33,7 +33,7 @@ export default {
     mounted() {
         this.createChart('planet-chart', this.planetChartData);
         this.createChart('planet-chart2', this.planetChartData);
-        this.createChart('hist', this.dat);
+        this.createChart('his', this.dat);
         
     }
 }
