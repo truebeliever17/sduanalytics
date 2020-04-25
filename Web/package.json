@@ -11,7 +11,8 @@
     "chart.js": "^2.9.3",
     "core-js": "^3.6.4",
     "oracledb": "^4.2.0",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vuesax": "^3.11.13"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.3.0",
