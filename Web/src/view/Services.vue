@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import popularcourses from './PopularCourses.vue';
+import popularcourses from '../components/PopularCourses.vue';
 export default {
   data() {
     return {

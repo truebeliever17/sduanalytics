@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import navbar from "./view/Navbar.vue";
+import navbar from "./components/Navbar.vue";
 
 export default {
   name: "App",
@@ -54,7 +54,27 @@ $input-border-color: #333b45;
 $input-color: #a2a6ab;
 $label-color: #a2a6ab;
 
+button.vs-pagination__button,
+button.vs-pagination__arrow,{
+  background-color: #2b333d;
+  color: #a2a6ab;
+  fill: #a2a6ab;
+}
+
+i.vs-icon-arrow:before, i.vs-icon-arrow:after {
+  background-color: #a2a6ab;
+}
+
+button.vs-pagination__button:hover,
+button.vs-pagination__arrow:hover {
+    i.vs-icon-arrow:before, i.vs-icon-arrow:after  {
+    background-color: white;
+  }
+  background-color: #353e4a;
+  color: white;
+}
 #app {
+  min-height: 100vh;
   background-color: #232931;
 }
 
