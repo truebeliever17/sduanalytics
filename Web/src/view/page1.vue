@@ -1,59 +1,35 @@
 <template>
     <div id='main'>
-        <div id="first"><canvas id="planet-chart"></canvas></div>
-        <div id='ss'>
-            <div id="second"><canvas id="planet-chart2"></canvas></div>
-            <div id="third"><canvas id='his'></canvas></div>
-        </div>
+        <tabs :mode="mode">
+            <tab title="Engeniering"><ENG/></tab>
+            <tab title="Philo">TFL</tab>
+            <tab title="BS">Hello From Tab 3</tab>
+            <tab title="urfac">Hello From Tab 4</tab>
+        </tabs>
     </div>    
 </template>
 
 <script>
-import Chart from 'chart.js';
-import planetChartData from '../charts-object/chart-data.js';
-import dat from '../charts-object/hist.js'
+import Tab from '../components/Tab';
+import Tabs from '../components/Tabs';
+import ENG from '../TAb1 pages/ENG';
 export default {
     name: 'page1',
     data() {
         return {
-            planetChartData: planetChartData,
-            dat: dat
+            mode: 'dark'
         }
     },
-    methods: {
-        createChart(chartId, chartData) {
-            const ctx = document.getElementById(chartId);
-            const myChart = new Chart(ctx, {
-            type: chartData.type,
-            data: chartData.data,
-            options: chartData.options,
-          });
-        },
-    },
-    mounted() {
-        this.createChart('planet-chart', this.planetChartData);
-        this.createChart('planet-chart2', this.planetChartData);
-        this.createChart('his', this.dat);
-        
+    components: {
+        Tab,
+        Tabs,
+        ENG
     }
+    
 }
 </script>
 
 <style scoped>
-    #main {
-        display: flex;
-        flex-flow: wrap;
-        justify-content: space-around;
-    }
-    #first{
-        text-align: center;
-        width: 60%;
-        height:30vw;
-    }
-    #ss {
-        width: 30%; 
-        height: 30vw;
-        margin-right: 5vh;
-    }
+    
     
 </style>

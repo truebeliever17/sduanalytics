@@ -79,19 +79,7 @@ export default {
     min-height: 400px;
   }
 
-  .tabs__light .tab{
-    background-color: #fff;
-  }
 
-  .tabs__light li {
-    background-color: #ddd;
-    color: #aaa;
-  }
-
-  .tabs__light li.tab__selected {
-    background-color: #fff;
-    color: #83FFB3;
-  }
 
   .tabs__dark .tab{
     background-color: #232931;

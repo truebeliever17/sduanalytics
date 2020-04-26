@@ -80,8 +80,6 @@ button.vs-pagination__arrow:hover {
 #app {
   min-height: 100vh;
   background-color: #232931;
-  width:100%;
-  height: 50.95vw;// for Sultans Laptop.
 }
 
 @import "~bulma";
