@@ -59,7 +59,7 @@
       <ol>
         <li v-for="rec in data.slice((page - 1) * 5, (page - 1) * 5 + 5)">
           <h1>{{ rec.DERS_KOD }}</h1>
-          <p>Students count: {{ rec.REG_COUNT }}</p>
+          <p><b>Students count:</b> {{ rec.REG_COUNT }}</p>
           <p v-if="rec.DIFF">
             The course was selected in
             {{ Math.round(+rec.REG_COUNT * +rec.DIFF) }} hours
@@ -131,6 +131,7 @@ export default {
   text-align: center;
 }
 h1 {
+  font-size: 1.2rem;
   font-weight: bold;
   color: #dbdbdb;
 }
@@ -180,7 +181,7 @@ li:hover {
 }
 .selects {
   display: flex;
-  padding: 4em;
+  padding: 1.5em;
   justify-content: center;
 }
 
