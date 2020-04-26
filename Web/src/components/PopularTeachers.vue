@@ -1,5 +1,17 @@
 <template>
   <div class="container">
+    <b-field class="select-field" label="Course code">
+      <b-input
+        v-on:input="onChange()"
+        placeholder="HSS 222"
+        type="search"
+        v-model="selected_course"
+        icon="book"
+        size="is-medium"
+        expanded
+      >
+      </b-input>
+    </b-field>
     <div class="selects">
       <b-field class="select-field" label="Term">
         <b-select
@@ -37,6 +49,7 @@
         :icon="success"
         :upload="loading"
         :color="success ? 'success' : notfound ? 'danger' : 'primary'"
+        :disabled="disabled"
         block
       >
         <span v-if="notfound">
@@ -59,7 +72,6 @@
       <ol>
         <li v-for="rec in data.slice((page - 1) * 5, (page - 1) * 5 + 5)">
           <h1>{{ rec.EMP_ID }}</h1>
-          <p><b>Course:</b> {{ rec.DERS_KOD }}</p>
           <p><b>Students count:</b> {{ rec.REG_COUNT }}</p>
           <p v-if="rec.DIFF">
             The teacher was selected in
@@ -86,10 +98,12 @@ export default {
       success: false,
       loading: false,
       notfound: false,
+      selected_course: "",
       selected_year: "2016",
       selected_term: "1",
       data: [],
       page: 1,
+      disabled: true,
     };
   },
 
@@ -99,26 +113,44 @@ export default {
     onChange() {
       this.success = false;
       this.notfound = false;
+      if (
+        this.selected_term.length == 0 ||
+        this.selected_year.length == 0 ||
+        this.selected_course.length == 0
+      ) {
+        this.disabled = true;
+      } else {
+        this.disabled = false;
+      }
     },
     handleClick() {
       this.page = 1;
       this.loading = true;
-      if (this.selected_term.length > 0 && this.selected_year.length > 0) {
-        let filtered_data = popular_teachers.filter(
-          (val) =>
-            val.YEAR == +this.selected_year && val.TERM == +this.selected_term
-        );
 
-        if (filtered_data.length == 0) {
-          this.notfound = true;
-          this.loading = false;
-          this.data = [];
+      let filtered_data = popular_teachers.filter(
+        (val) =>
+          val.YEAR == +this.selected_year &&
+          val.TERM == +this.selected_term &&
+          val.DERS_KOD == this.selected_course.toUpperCase()
+      );
+
+      filtered_data.sort((a, b) => {
+        if (a.DIFF && b.DIFF) {
+          return a.DIFF - b.DIFF;
         } else {
-          this.notfound = false;
-          this.data = filtered_data;
-          this.loading = false;
-          this.success = true;
+          return b.REG_COUNT - a.REG_COUNT;
         }
+      });
+
+      if (filtered_data.length == 0) {
+        this.notfound = true;
+        this.loading = false;
+        this.data = [];
+      } else {
+        this.notfound = false;
+        this.data = filtered_data;
+        this.loading = false;
+        this.success = true;
       }
     },
   },
@@ -179,12 +211,9 @@ li:hover {
 .center {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 1em 0;
 }
 .selects {
-  display: flex;
-  padding: 1.5em;
-  justify-content: center;
 }
 
 .select-field {
