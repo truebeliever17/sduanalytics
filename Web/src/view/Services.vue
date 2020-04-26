@@ -46,12 +46,15 @@
       </b-select>
     </b-field>
     <popularcourses v-if="selected == 'popular_courses'"></popularcourses>
+    <popularteachers v-else-if="selected == 'popular_teachers'"></popularteachers>
+
   </section>
   
 </template>
 
 <script>
 import popularcourses from '../components/PopularCourses.vue';
+import popularteachers from '../components/PopularTeachers.vue';
 export default {
   data() {
     return {
@@ -60,6 +63,7 @@ export default {
   },
   components: {
       popularcourses,
+      popularteachers,
   }
 };
 </script>
