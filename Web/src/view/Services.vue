@@ -3,11 +3,12 @@
     <h1>
       Select a service which you want
     </h1>
-    <b-field>
+    <b-field label="Services">
       <b-select
         id="b-select"
         v-model="selected"
         placeholder="Services"
+        
         size="is-large"
         expanded
       >
@@ -47,7 +48,6 @@
     </b-field>
     <popularcourses v-if="selected == 'popular_courses'"></popularcourses>
     <popularteachers v-else-if="selected == 'popular_teachers'"></popularteachers>
-
   </section>
   
 </template>
@@ -74,7 +74,7 @@ h1 {
   text-align: center;
   font-size: 3em;
   font-weight: bold;
-  margin: 0 0 2rem 0;
+  margin: 0 0 5rem 0;
 }
 section {
   width: 50%;
