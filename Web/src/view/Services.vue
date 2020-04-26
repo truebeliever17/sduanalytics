@@ -1,4 +1,4 @@
-<template>
+s<template>
   <section>
     <h1>
       Select a service which you want
@@ -48,6 +48,7 @@
     </b-field>
     <popularcourses v-if="selected == 'popular_courses'"></popularcourses>
     <popularteachers v-else-if="selected == 'popular_teachers'"></popularteachers>
+    <studentgpa v-else-if="selected == 'gpa'"></studentgpa>
   </section>
   
 </template>
@@ -55,6 +56,7 @@
 <script>
 import popularcourses from '../components/PopularCourses.vue';
 import popularteachers from '../components/PopularTeachers.vue';
+import studentgpa from '../components/StudentGPA.vue';
 export default {
   data() {
     return {
@@ -64,6 +66,7 @@ export default {
   components: {
       popularcourses,
       popularteachers,
+      studentgpa,
   }
 };
 </script>
