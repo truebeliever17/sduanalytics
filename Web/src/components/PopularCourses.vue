@@ -108,6 +108,14 @@ export default {
             val.YEAR == +this.selected_year && val.TERM == +this.selected_term
         );
 
+        filtered_data.sort((a, b) => {
+          if (a.DIFF && b.DIFF) {
+            return a.DIFF - b.DIFF;
+          } else {
+            return b.REG_COUNT - a.REG_COUNT;
+          }
+        });
+
         if (filtered_data.length == 0) {
           this.notfound = true;
           this.loading = false;
@@ -177,12 +185,10 @@ li:hover {
 .center {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 1em 0;
 }
 .selects {
-  display: flex;
-  padding: 1.5em;
-  justify-content: center;
+
 }
 
 .select-field {
