@@ -1,13 +1,14 @@
-<template>
+s<template>
   <section>
     <h1>
       Select a service which you want
     </h1>
-    <b-field>
+    <b-field label="Services">
       <b-select
         id="b-select"
         v-model="selected"
         placeholder="Services"
+        
         size="is-large"
         expanded
       >
@@ -46,12 +47,26 @@
       </b-select>
     </b-field>
     <popularcourses v-if="selected == 'popular_courses'"></popularcourses>
+    <popularteachers v-else-if="selected == 'popular_teachers'"></popularteachers>
+    <studentgpa v-else-if="selected == 'gpa'"></studentgpa>
+    <nonregistered v-else-if="selected == 'nonregistered'"></nonregistered>
+    <expenses v-else-if="selected == 'retake'"></expenses>
+    <teacherloading v-else-if="selected == 'working_hours'"></teacherloading>
+    <schedule v-else-if="selected == 'schedule'"></schedule>
   </section>
   
 </template>
 
 <script>
-import popularcourses from './PopularCourses.vue';
+import popularcourses from '../components/PopularCourses.vue';
+import popularteachers from '../components/PopularTeachers.vue';
+import studentgpa from '../components/StudentGPA.vue';
+import nonregistered from '../components/Nonregistered.vue';
+import expenses from '../components/StudentExpenses.vue';
+import teacherloading from '../components/TeacherLoading.vue';
+import schedule from '../components/Schedule.vue';
+
+
 export default {
   data() {
     return {
@@ -60,6 +75,12 @@ export default {
   },
   components: {
       popularcourses,
+      popularteachers,
+      studentgpa,
+      nonregistered,
+      expenses,
+      teacherloading,
+      schedule,
   }
 };
 </script>
@@ -70,7 +91,7 @@ h1 {
   text-align: center;
   font-size: 3em;
   font-weight: bold;
-  margin: 0 0 2rem 0;
+  margin: 0 0 5rem 0;
 }
 section {
   width: 50%;

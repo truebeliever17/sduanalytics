@@ -36,10 +36,13 @@
         size="xl"
         :icon="success"
         :upload="loading"
-        :color="success ? 'success' : 'primary'"
+        :color="success ? 'success' : notfound ? 'danger' : 'primary'"
         block
       >
-        <span v-if="!success">
+        <span v-if="notfound">
+          <i class="bx bx-x bx-lg"></i>
+        </span>
+        <span v-else-if="!success">
           <i class="bx bx-search"></i>
           Search
         </span>
@@ -50,17 +53,26 @@
     </div>
 
     <div class="results">
-      <h1 v-if="data.length > 0" id="results_h1">Results</h1>
+      <h1 class="results_notfound" v-if="notfound">Not Found</h1>
+
+      <h1 v-else-if="data.length > 0" class="results_h1">Results</h1>
       <ol>
-        <li v-for="rec in data">
+        <li v-for="rec in data.slice((page - 1) * 5, (page - 1) * 5 + 5)">
           <h1>{{ rec.DERS_KOD }}</h1>
-          <p>Students count: {{ rec.REG_COUNT }}</p>
+          <p><b>Students count:</b> {{ rec.REG_COUNT }}</p>
           <p v-if="rec.DIFF">
             The course was selected in
             {{ Math.round(+rec.REG_COUNT * +rec.DIFF) }} hours
           </p>
         </li>
       </ol>
+      <div class="center" v-if="data.length > 0">
+        <vs-pagination
+          class="test"
+          v-model="page"
+          :length="Math.ceil(data.length / 5)"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -72,9 +84,11 @@ export default {
     return {
       success: false,
       loading: false,
+      notfound: false,
       selected_year: "2016",
       selected_term: "1",
       data: [],
+      page: 1,
     };
   },
 
@@ -83,8 +97,10 @@ export default {
   methods: {
     onChange() {
       this.success = false;
+      this.notfound = false;
     },
     handleClick() {
+      this.page = 1;
       this.loading = true;
       if (this.selected_term.length > 0 && this.selected_year.length > 0) {
         let filtered_data = popular_courses.filter(
@@ -92,9 +108,20 @@ export default {
             val.YEAR == +this.selected_year && val.TERM == +this.selected_term
         );
 
+        filtered_data.sort((a, b) => {
+          if (a.DIFF && b.DIFF) {
+            return a.DIFF - b.DIFF;
+          } else {
+            return b.REG_COUNT - a.REG_COUNT;
+          }
+        });
+
         if (filtered_data.length == 0) {
-          // todo
+          this.notfound = true;
+          this.loading = false;
+          this.data = [];
         } else {
+          this.notfound = false;
           this.data = filtered_data;
           this.loading = false;
           this.success = true;
@@ -106,35 +133,48 @@ export default {
 </script>
 
 <style scoped>
-#results_h1 {
+.results_h1 {
   margin-top: 1em;
   font-size: 2rem;
   text-align: center;
 }
 h1 {
+  font-size: 1.2rem;
   font-weight: bold;
   color: #dbdbdb;
 }
 
+.results_notfound {
+  margin-top: 1em;
+  padding-bottom: 1.5em;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.vs-icon-arrow {
+  color: white;
+}
 p,
 li {
   color: #adadad;
 }
-
+ol {
+  padding-bottom: 2em;
+}
 li {
   list-style: none;
   padding: 1em;
-  margin: 1em 0;
+  margin: 1em 0 0 0;
   list-style-position: inside;
-  border: 1px solid #adadad;
+  border: 1px solid #333b45;
   border-radius: 4px;
 }
 
 .custom_option {
-    color: #a2a6ab;
+  color: #a2a6ab;
 }
 #success_result {
-    padding: 0.4em;
+  padding: 0.4em;
 }
 li:hover {
   background-color: #2b333d;
@@ -145,12 +185,10 @@ li:hover {
 .center {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 1em 0;
 }
 .selects {
-  display: flex;
-  padding: 4em;
-  justify-content: center;
+
 }
 
 .select-field {
