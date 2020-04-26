@@ -51,6 +51,8 @@ s<template>
     <studentgpa v-else-if="selected == 'gpa'"></studentgpa>
     <nonregistered v-else-if="selected == 'nonregistered'"></nonregistered>
     <expenses v-else-if="selected == 'retake'"></expenses>
+    <teacherloading v-else-if="selected == 'working_hours'"></teacherloading>
+
   </section>
   
 </template>
@@ -61,6 +63,7 @@ import popularteachers from '../components/PopularTeachers.vue';
 import studentgpa from '../components/StudentGPA.vue';
 import nonregistered from '../components/Nonregistered.vue';
 import expenses from '../components/StudentExpenses.vue';
+import teacherloading from '../components/TeacherLoading.vue';
 
 export default {
   data() {
@@ -74,6 +77,7 @@ export default {
       studentgpa,
       nonregistered,
       expenses,
+      teacherloading,
   }
 };
 </script>
