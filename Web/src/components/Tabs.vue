@@ -96,7 +96,6 @@ export default {
     background-color: #232931;
     border: 1px solid blue;
     color: white;
-
   }
 
 </style>
