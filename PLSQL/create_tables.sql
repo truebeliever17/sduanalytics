@@ -35,3 +35,22 @@ CREATE TABLE course_selections (
     practice NUMBER,
     reg_date DATE
 );
+
+CREATE TABLE log_course_selections (
+    id NUMBER,
+    stud_id VARCHAR2(50),
+    ders_kod VARCHAR2(8),
+    year NUMBER,
+    term NUMBER,
+    section VARCHAR2(5),
+    qiymet_yuz NUMBER,
+    qiymet_herf VARCHAR2(3),
+    grading_type VARCHAR2(3),
+    practice NUMBER,
+    reg_date DATE
+);
+
+ALTER TABLE log_course_selections ADD (
+    CONSTRAINT log_selections_pk PRIMARY KEY(id));
+    
+CREATE SEQUENCE log_selections_seq START WITH 1;
