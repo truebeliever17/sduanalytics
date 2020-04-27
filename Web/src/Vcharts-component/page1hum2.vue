@@ -1,6 +1,6 @@
 <template>
     <div>
-        <canvas id='chart1'></canvas>
+        <canvas id='chart6'></canvas>
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 <script>
 
 import Chart from 'chart.js';
-import data from '../charts-object/data'
+import data from '../charts-object/edu&human'
 export default {
     name: 'chart1',
     data() {
@@ -81,7 +81,7 @@ export default {
         }
     },
     mounted() {
-        this.createChart('chart1');
+        this.createChart('chart6');
     }
     
 }

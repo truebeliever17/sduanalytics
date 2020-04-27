@@ -1,10 +1,10 @@
 <template>
     <div id='main'>
         <tabs :mode="mode">
-            <tab title="Engeniering"><ENG/></tab>
-            <tab title="Philo">TFL</tab>
-            <tab title="BS">Hello From Tab 3</tab>
-            <tab title="urfac">Hello From Tab 4</tab>
+            <tab title="Engineering & Natural Sciences"><ENG/></tab>
+            <tab title="Education & Humanities"><eduhum/></tab>
+            <tab title="Busines School"><BS/></tab>
+            <tab title="Law & Social Science"><Law/></tab>
         </tabs>
     </div>    
 </template>
@@ -13,6 +13,10 @@
 import Tab from '../components/Tab';
 import Tabs from '../components/Tabs';
 import ENG from '../TAb1 pages/ENG';
+import eduhum from '../TAb1 pages/EduHuman';
+import BS from '../TAb1 pages/BS';
+import Law from '../TAb1 pages/Law';
+
 export default {
     name: 'page1',
     data() {
@@ -23,13 +27,18 @@ export default {
     components: {
         Tab,
         Tabs,
-        ENG
+        ENG,
+        eduhum,
+        BS,
+        Law
     }
     
 }
 </script>
 
 <style scoped>
-    
+    #main{
+        height: 630px;
+    }
     
 </style>

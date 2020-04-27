@@ -1,6 +1,6 @@
 <template>
     <div>
-        <canvas id='chart1'></canvas>
+        <canvas id='chart11'></canvas>
     </div>
 </template>
 
@@ -8,12 +8,12 @@
 <script>
 
 import Chart from 'chart.js';
-import data from '../charts-object/data'
+import data from '../charts-object/bs'
 export default {
     name: 'chart1',
     data() {
         return {
-            chartData : data.y17
+            chartData : data.y18
         }
     },
     methods: {
@@ -26,7 +26,7 @@ export default {
                     datasets: [{
                         type: 'line',
                         borderColor: "#white",
-                        label: '2017',
+                        label: '2018',
                         data: this.chartData.data,
                         borderWidth: 3,
                         xAxisID: "x-axis-1",
@@ -54,7 +54,7 @@ export default {
                             tipe: "time",
                             scaleLabel: {
                                 display: true,
-                                labelString: '2017'
+                                labelString: '2018'
                             },
                             
                             id: "x-axis-1",
@@ -81,7 +81,7 @@ export default {
         }
     },
     mounted() {
-        this.createChart('chart1');
+        this.createChart('chart11');
     }
     
 }

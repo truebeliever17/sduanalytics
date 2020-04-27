@@ -2,8 +2,8 @@
     <div>
 <!-- <button class='change__style' @click='changeStyle()'>Change Style</button> -->
         <tabs :mode="mode">
-            <tab title="Popular courses"><page1/></tab>
-            <tab title="Tab 2"><page2/></tab>
+            <tab id='tab1' title="Popular courses"><page1/></tab>
+            <tab title="GPA"><page2/></tab>
             <tab title="Tab 3">Hello From Tab 3</tab>
             <tab title="Tab 4">Hello From Tab 4</tab>
         </tabs>
@@ -27,18 +27,12 @@ export default {
         page1,
         Tab,
         Tabs
-    },methods : {
-        changeStyle () {
-        if (this.mode === 'dark') {
-          this.mode = 'light'
-        } else {
-          this.mode = 'dark'
-        }
-      }
     }
 }
 </script>
 
 <style scoped>
-
+    #tab1 {
+        height: 800px;
+    }
 </style>

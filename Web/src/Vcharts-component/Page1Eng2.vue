@@ -1,6 +1,6 @@
 <template>
     <div>
-        <canvas id='chart1'></canvas>
+        <canvas id='chart2'></canvas>
     </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
     name: 'chart1',
     data() {
         return {
-            chartData : data.y17
+            chartData : data.y16,
         }
     },
     methods: {
@@ -25,8 +25,8 @@ export default {
                     labels: this.chartData.labels,
                     datasets: [{
                         type: 'line',
-                        borderColor: "#white",
-                        label: '2017',
+                        borderColor: "#E25F5F",
+                        label: '2016',
                         data: this.chartData.data,
                         borderWidth: 3,
                         xAxisID: "x-axis-1",
@@ -54,7 +54,7 @@ export default {
                             tipe: "time",
                             scaleLabel: {
                                 display: true,
-                                labelString: '2017'
+                                labelString: '2016'
                             },
                             
                             id: "x-axis-1",
@@ -81,7 +81,7 @@ export default {
         }
     },
     mounted() {
-        this.createChart('chart1');
+        this.createChart('chart2');
     }
     
 }
