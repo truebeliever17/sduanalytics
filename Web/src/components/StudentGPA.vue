@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import popular_teachers from "../../database/json/gpa.json";
+import gpa from "../../database/json/gpa.json";
 export default {
   data() {
     return {
@@ -129,7 +129,7 @@ export default {
       this.page = 1;
       this.loading = true;
 
-      let filtered_data = popular_teachers.filter(
+      let filtered_data = gpa.filter(
         (val) =>
           val.YEAR == +this.selected_year &&
           val.TERM == +this.selected_term &&
