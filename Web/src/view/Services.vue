@@ -53,6 +53,16 @@ s<template>
     <expenses v-else-if="selected == 'retake'"></expenses>
     <teacherloading v-else-if="selected == 'working_hours'"></teacherloading>
     <schedule v-else-if="selected == 'schedule'"></schedule>
+    <subjectsnumber v-else-if="selected == 'subjects'"></subjectsnumber>
+    <mostcleverflow v-else-if="selected == 'mostcleverflow'"></mostcleverflow>
+    <teachersrating v-else-if="selected == 'teachersrating'"></teachersrating>
+    <subjectsrating v-else-if="selected == 'subjectsrating'"></subjectsrating>
+    <totalprofitretakes v-else-if="selected == 'totalprofit'"></totalprofitretakes>
+
+
+
+
+
   </section>
   
 </template>
@@ -65,6 +75,13 @@ import nonregistered from '../components/Nonregistered.vue';
 import expenses from '../components/StudentExpenses.vue';
 import teacherloading from '../components/TeacherLoading.vue';
 import schedule from '../components/Schedule.vue';
+import subjectsnumber from '../components/SubjectsNumber.vue';
+import mostcleverflow from '../components/MostCleverFlow.vue';
+import teachersrating from '../components/TeachersRating.vue';
+import subjectsrating from '../components/SubjectsRating.vue';
+import totalprofitretakes from '../components/TotalProfitRetakes.vue';
+
+
 
 
 export default {
@@ -81,6 +98,11 @@ export default {
       expenses,
       teacherloading,
       schedule,
+      subjectsnumber,
+      mostcleverflow,
+      teachersrating,
+      subjectsrating,
+      totalprofitretakes
   }
 };
 </script>
