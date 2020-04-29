@@ -17,6 +17,9 @@ export default {
 </script>
 
 <style>
+.box {
+  background-color: #232931 !important;
+}
 .wrapper {
   height: 80%;
   margin: 0;

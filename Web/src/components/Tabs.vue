@@ -1,10 +1,12 @@
 <template lang="html">
-  <div :class='{"tabs__light": mode === "light", "tabs__dark": mode === "dark"}'>
-    <ul class='tabs__header'>
-      <li v-for='(tab, index) in tabs'
-        :key='tab.title'
-        @click='selectTab(index)'
-        :class='{"tab__selected": (index == selectedIndex)}'>
+  <div :class="{ tabs__light: mode === 'light', tabs__dark: mode === 'dark' }">
+    <ul class="tabs__header">
+      <li
+        v-for="(tab, index) in tabs"
+        :key="tab.title"
+        @click="selectTab(index)"
+        :class="{ tab__selected: index == selectedIndex }"
+      >
         {{ tab.title }}
       </li>
     </ul>
@@ -14,88 +16,75 @@
 
 <script>
 export default {
-  name: 'tabs',
+  name: "tabs",
   props: {
     mode: {
       type: String,
-      default: 'light'
-    }
+      default: "light",
+    },
   },
-  data () {
+  data() {
     return {
       selectedIndex: 0, // the index of the selected tab,
-      tabs: []         // all of the tabs
-    }
+      tabs: [], // all of the tabs
+    };
   },
-  created () {
-    this.tabs = this.$children
+  created() {
+    this.tabs = this.$children;
   },
-  mounted () {
-    this.selectTab(0)
+  mounted() {
+    this.selectTab(0);
   },
   methods: {
-    selectTab (i) {
-      this.selectedIndex = i
+    selectTab(i) {
+      this.selectedIndex = i;
 
       // loop over all the tabs
       this.tabs.forEach((tab, index) => {
-        tab.isActive = (index === i)
-      })
-    }
-  }
-}
+        tab.isActive = index === i;
+      });
+    },
+  },
+};
 </script>
 
 <style lang="css">
+ul.tabs__header {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  ul.tabs__header {
-    display: block;
-    list-style: none;
-    margin: 0 0 0 0px;
-    padding: 0;
-  }
+ul.tabs__header > li {
+  padding: 12px 12px;
+  margin: 10px 0;
 
-  ul.tabs__header > li {
-    padding: 15px 30px;
-    border-radius: 10px;
-    margin: 0;
-    display: inline-block;
-    margin-right: 5px;
-    cursor: pointer;
-  }
+  display: inline-block;
+  border-bottom: 4px solid #2d333b;
 
-  ul.tabs__header > li.tab__selected {
-    font-weight: bold;
-    border-radius: 10px;
-    border-bottom: 8px solid transparent;
-  }
+  cursor: pointer;
+}
 
-  .tab {
-    display: inline-block;
-    color: black;
-    padding: 20px;
-    min-width: 800px;
-    border-radius: 10px;
-    min-height: 400px;
-  }
+ul.tabs__header > li.tab__selected {
+  font-weight: bold;
+}
 
+.tabs__dark .tab {
+  color: #eee;
+}
 
+.tabs__dark li {
+  color: #aaa;
+}
 
-  .tabs__dark .tab{
-    background-color: #232931;
-    border: 1px solid blue;
-    color: #eee;
-  }
+.tabs__dark li:hover {
+  color: white;
+}
 
-  .tabs__dark li {
-    background-color: rgba(0, 0, 0, 0.2);
-    color: #aaa;
-  }
-
-  .tabs__dark li.tab__selected {
-    background-color: #232931;
-    border: 1px solid blue;
-    color: white;
-  }
-
+.tabs__dark li.tab__selected {
+  border-bottom: 4px solid #1831d6;
+  transition: 0.1s ease-in-out;  
+  color: white;
+}
 </style>

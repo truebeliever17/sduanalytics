@@ -3,7 +3,7 @@
         <tabs :mode="mode">
             <tab title="Engineering & Natural Sciences"><ENG/></tab>
             <tab title="Education & Humanities"><eduhum/></tab>
-            <tab title="Busines School"><BS/></tab>
+            <tab title="Business School"><BS/></tab>
             <tab title="Law & Social Science"><Law/></tab>
         </tabs>
     </div>    
@@ -40,5 +40,6 @@ export default {
     #main{
         height: 630px;
     }
+
     
 </style>
