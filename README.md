@@ -5,7 +5,7 @@ Database project with Suleyman Demirel University's data. The project about anal
 **Demo:** https://truebeliever17.github.io/
 
 ## Installation
-To run the demo you need all install the packages. To do this, first move to 'Web' directory then install it.
+To run the demo you need all install the packages. To do this, first move to 'Web' directory then install the packages.
 ```
 cd Web
 npm install
@@ -16,11 +16,11 @@ npm run serve
 ```
 
 ## Dependencies
-[node-oracledb](https://github.com/oracle/node-oracledb)
-[vue.js](https://github.com/vuejs/vue)
-[vuesax-next](https://github.com/lusaxweb/vuesax-next)
-[buefy](https://github.com/buefy/buefy)
-[sass-loader](https://github.com/webpack-contrib/sass-loader)
+[node-oracledb](https://github.com/oracle/node-oracledb)  
+[vue.js](https://github.com/vuejs/vue)  
+[vuesax-next](https://github.com/lusaxweb/vuesax-next)  
+[buefy](https://github.com/buefy/buefy)  
+[sass-loader](https://github.com/webpack-contrib/sass-loader)  
 [node-sass](https://github.com/sass/node-sass)
 
 ## Screenshots
